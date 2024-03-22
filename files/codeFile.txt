@@ -1,0 +1,2 @@
+code::468703,isValid::true,hostAddress::90,visitorId::456,generationDateTime::2024-03-22T00:41:02.790114,hostId::123,used::false
+code::788844,isValid::true,hostAddress::90,visitorId::444,generationDateTime::2024-03-22T00:49:41.512831,hostId::123,used::false
