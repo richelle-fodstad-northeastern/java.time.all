@@ -9,16 +9,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 
-
-
-
 public class SharedData {
 	public static ArrayList<Host> hostArrayList = new ArrayList<>(); 
 	public static ArrayList<Visitor> visitorArrayList = new ArrayList<>(); 
 	public static ArrayList<Code> codeArrayList = new ArrayList<>(); 
 	public static ArrayList<Access> accessArrayList = new ArrayList<>();
-	
-	
+		
 	//initialize hostArrayList,visitorArrayList,codeArrayList,accessArrayList
 	static void initializeHost() {
 		String hostId;
@@ -27,7 +23,7 @@ public class SharedData {
 		for (int i=0;i<hostArrayListStrings.size();i++) {
 			hostId = hostArrayListStrings.get(i).split(",")[0].split("::")[1];
 			address = hostArrayListStrings.get(i).split(",")[1].split("::")[1];    
-			addHost(hostId,address);
+			hostArrayList.add(new Host(hostId,address));
 		}
 	}
 	
@@ -37,7 +33,7 @@ public class SharedData {
 		ArrayList<String> hostArrayListStrings = readFromFile("files/visitorFile.txt");
 		for (int i=0;i<hostArrayListStrings.size();i++) {
 			visitorId = hostArrayListStrings.get(i).split(",")[0].split("::")[1];
-			addVisitor(visitorId);
+			visitorArrayList.add(new Visitor(visitorId));
 		}
 	}
 	
@@ -59,7 +55,7 @@ public class SharedData {
 			generationDateTime =LocalDateTime.parse(hostArrayListStrings.get(i).split(",")[4].split("::")[1],dateTimeFormatter);
 			hostId = hostArrayListStrings.get(i).split(",")[5].split("::")[1];
 			used = Boolean.parseBoolean(hostArrayListStrings.get(i).split(",")[6].split("::")[1]);
-			addCode(code,isValid,hostAddress,visitorId,generationDateTime,hostId,used);
+			codeArrayList.add(new Code(code,isValid,hostAddress,visitorId,generationDateTime,hostId,used));
 		}
 	}
 	
