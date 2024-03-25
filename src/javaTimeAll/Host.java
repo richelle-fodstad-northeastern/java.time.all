@@ -21,7 +21,7 @@ class Host extends Person {
 	
 	void generateCode(String visitorId) {
 		this.nextVisitorId = visitorId;
-		this.nextCode =""+rnd.nextInt(1000000);
+		this.nextCode = String.format("%06d",rnd.nextInt(1000000));
 /**		int[] randomNumArr = new int[6];
 		for (int i = 0; i < randomNumArr.length; i++) {
 			randomNumArr[i] = rnd.nextInt(10);
